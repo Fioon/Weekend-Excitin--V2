@@ -32,6 +32,13 @@ class ClientPrefs {
 	public static var hitsoundVolume:Float = 0;
 	public static var pauseMusic:String = 'Tea Time';
 	public static var checkForUpdates:Bool = true;
+	public static var hitboxmode:String = 'New';  //starting new way to change between hitboxes yay
+    
+	public static var hitboxExtend = true;
+	public static var hitboxLocation:String = 'Bottom';
+	public static var hitboxalpha:Float = 0.2; //someone request this lol
+	public static var VirtualPadAlpha:Float = 0.75;
+	public static var VirtualPadSPACE:Array<Float> = [FlxG.width - 44 * 3, FlxG.height - 45 * 3];
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -128,6 +135,12 @@ class ClientPrefs {
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.checkForUpdates = checkForUpdates;
+		FlxG.save.data.hitboxmode = hitboxmode;
+		FlxG.save.data.hitboxalpha = hitboxalpha;
+		FlxG.save.data.VirtualPadAlpha = VirtualPadAlpha;
+		FlxG.save.data.VirtualPadSPACE = VirtualPadSPACE;
+	    FlxG.save.data.hitboxExtend = hitboxExtend;
+	    FlxG.save.data.hitboxLocation = hitboxLocation;
 	
 		FlxG.save.flush();
 
@@ -212,7 +225,9 @@ class ClientPrefs {
 		if(FlxG.save.data.comboOffset != null) {
 			comboOffset = FlxG.save.data.comboOffset;
 		}
-		
+		if(FlxG.save.data.VirtualPadSPACE != null) {
+			VirtualPadSPACE = FlxG.save.data.VirtualPadSPACE;
+		}
 		if(FlxG.save.data.ratingOffset != null) {
 			ratingOffset = FlxG.save.data.ratingOffset;
 		}
@@ -258,6 +273,21 @@ class ClientPrefs {
 		if (FlxG.save.data.checkForUpdates != null)
 		{
 			checkForUpdates = FlxG.save.data.checkForUpdates;
+		}
+		if(FlxG.save.data.hitboxmode != null) {
+			hitboxmode = FlxG.save.data.hitboxmode;
+		}
+		if(FlxG.save.data.hitboxLocation != null) {
+			hitboxLocation = FlxG.save.data.hitboxLocation;
+		}
+		if(FlxG.save.data.hitboxExtend != null) {
+			hitboxExtend = FlxG.save.data.hitboxExtend;
+		}
+		if(FlxG.save.data.hitboxalpha != null) {
+			hitboxalpha = FlxG.save.data.hitboxalpha;
+		}
+		if(FlxG.save.data.VirtualPadAlpha != null) {
+			VirtualPadAlpha = FlxG.save.data.VirtualPadAlpha;
 		}
 
 		var save:FlxSave = new FlxSave();
