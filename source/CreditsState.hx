@@ -144,6 +144,9 @@ class CreditsState extends MusicBeatState
 			txt.antialiasing = ClientPrefs.globalAntialiasing;
 		});
 		changeSelection();
+		 #if android
+                addVirtualPad(UP_DOWN, A_B);
+                #end
 	}
 
 	override function update(elapsed:Float)
