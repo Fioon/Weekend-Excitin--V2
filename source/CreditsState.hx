@@ -121,7 +121,7 @@ class CreditsState extends MusicBeatState
 
 		FlxG.mouse.visible = true;
 		super.create();
-		source = cast Json.parse(File.getContent(Paths.json('credits')));
+		source = cast Json.parse(File.getContent(SUtil.getPath() + Paths.json('credits')));
 
 		var chess = new ChessBG();
 		add(chess);
