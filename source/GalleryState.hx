@@ -142,6 +142,10 @@ class GalleryState extends MusicBeatState
 			spr.scrollFactor.set();
 			spr.antialiasing = ClientPrefs.globalAntialiasing;
 		});
+
+		 #if android
+                addVirtualPad(LEFT_RIGHT, B);
+                #end
 	}
 
 	override function update(elapsed:Float)
