@@ -19,7 +19,11 @@ import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUIAssets;
 import flixel.addons.ui.StrNameLabel;
 import flixel.addons.ui.FlxUI;
-
+#if android
+import flixel.input.actions.FlxActionInput;
+import android.AndroidControls.AndroidControls;
+import android.FlxVirtualPad;
+#end
 
 /*
 
@@ -433,6 +437,31 @@ class FlxUIDropDownMenuCustom extends FlxUIGroup implements IFlxUIWidget impleme
 		#if FLX_MOUSE
 		if (dropPanel.visible)
 		{
+				#if android //thanks gamerbross -saw
+			if(list.length > 1 && canScroll) 
+			{
+				for (swipe in FlxG.swipes)
+				{
+					var f = swipe.startPosition.x - swipe.endPosition.x;
+					var g = swipe.startPosition.y - swipe.endPosition.y;
+					if (25 <= Math.sqrt(f * f + g * g))
+					{
+						if ((-45 <= swipe.startPosition.angleBetween(swipe.endPosition) && 45 >= swipe.startPosition.angleBetween(swipe.endPosition)) #if android || getVirtualPad().buttonCEDown_M.pressed #end || FlxG.mouse.wheel > 0 || FlxG.keys.justPressed.UP)
+						{
+							// Go down
+							currentScroll++;
+							if(currentScroll >= list.length) currentScroll = list.length-1;
+							updateButtonPositions();
+						}
+						else if (-180 <= swipe.startPosition.angleBetween(swipe.endPosition) && -135 >= swipe.startPosition.angleBetween(swipe.endPosition) || (135 <= swipe.startPosition.angleBetween(swipe.endPosition) && 180 >= swipe.startPosition.angleBetween(swipe.endPosition)) #if android || getVirtualPad().buttonCEDown_M.pressed #end || FlxG.mouse.wheel < 0 || FlxG.keys.justPressed.DOWN)
+						{
+							// Go up
+							--currentScroll;
+							if(currentScroll < 0) currentScroll = 0;
+							updateButtonPositions();
+						}
+					}
+				}
 			if(list.length > 1 && canScroll) {
 				if(FlxG.mouse.wheel > 0 || FlxG.keys.justPressed.UP) {
 					// Go up
