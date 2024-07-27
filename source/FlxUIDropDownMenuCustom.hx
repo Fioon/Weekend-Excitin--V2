@@ -484,6 +484,9 @@ class FlxUIDropDownMenuCustom extends FlxUIGroup implements IFlxUIWidget impleme
 		}
 		#end
 	}
+}
+}
+}
 
 	override public function destroy():Void
 	{
