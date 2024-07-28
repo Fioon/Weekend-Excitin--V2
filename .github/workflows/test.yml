@@ -20,8 +20,6 @@ jobs:
 
       - name: Install Libraries
         run: |
-          sudo apt-get install libvlc-dev
-          sudo apt-get install libvlccore-dev
           haxelib setup ~/haxelib
           haxelib install hxcpp > /dev/null
           haxelib install lime 7.9.0
