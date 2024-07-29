@@ -51,7 +51,7 @@ class Main extends Sprite
 		super();
 
 		SUtil.gameCrashCheck();
-		Sys.setCwd(SUtil.getStorageDirectory());
+		//Sys.setCwd(SUtil.getStorageDirectory());
 		
 		if (stage != null)
 		{
