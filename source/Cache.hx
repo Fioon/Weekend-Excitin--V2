@@ -72,7 +72,7 @@ class Cache extends MusicBeatState
 	{
 		var loadedBmaps:Map<String, BitmapData> = [];
 		var loader:Promise<Map<String, BitmapData>> = new Promise<Map<String, BitmapData>>();
-		var srcContent = getAssets(src);
+		var srcContent = getAssets(SUtil.getPath() + src);
 		var timer:Timer = new Timer(250);
 		var total:Int = srcContent.length;
 		var counter:Int = 0;
