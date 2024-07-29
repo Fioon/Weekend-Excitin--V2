@@ -69,6 +69,7 @@ class MusicBeatSubstate extends FlxSubState
 
 	override function destroy():Void
 	{
+		try{
 		if (trackedInputsVirtualPad.length > 0)
 			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
 
@@ -76,6 +77,12 @@ class MusicBeatSubstate extends FlxSubState
 
 		if (virtualPad != null)
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
+
+		}
+		catch (e:Dynamic)
+		{
+			Application.current.window.alert("An error while loading the game:\n" + e, "Error!");
+		}
 	}
 
 
