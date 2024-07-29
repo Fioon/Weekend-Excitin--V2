@@ -21,6 +21,9 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 #end
+#if mobile
+import mobile.CopyState;
+#end
 
 using StringTools;
 
@@ -48,6 +51,7 @@ class Main extends Sprite
 		super();
 
 		SUtil.gameCrashCheck();
+		Sys.setCwd(SUtil.getStorageDirectory());
 		
 		if (stage != null)
 		{
@@ -90,7 +94,7 @@ class Main extends Sprite
 		#end
 
 		ClientPrefs.loadDefaultKeys();
-		addChild(new FlxGame(gameWidth, gameHeight, initialState, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, gameHeight, #if (mobile && MODS_ALLOWED) !CopyState.checkExistingFiles() ? CopyState : #end initialState, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
