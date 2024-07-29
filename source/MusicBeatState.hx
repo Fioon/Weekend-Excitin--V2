@@ -187,6 +187,7 @@ class MusicBeatState extends FlxUIState
 
 	override function destroy():Void
 	{
+		try{
 		if (trackedInputsMobileControls.length > 0)
 			controls.removeVirtualControlsInput(trackedInputsMobileControls);
 
@@ -200,6 +201,11 @@ class MusicBeatState extends FlxUIState
 
 		if (mobileControls != null)
 			mobileControls = FlxDestroyUtil.destroy(mobileControls);
+		}
+		catch (e:Dynamic)
+		{
+			Application.current.window.alert("An error while loading the game:\n" + e, "Error!");
+		}
 	}
 
 	override function create() {
