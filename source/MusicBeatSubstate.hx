@@ -6,11 +6,6 @@ import flixel.FlxSubState;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
 
-#if android
-import flixel.input.actions.FlxActionInput;
-import android.FlxVirtualPad;
-#end
-
 class MusicBeatSubstate extends FlxSubState
 {
 	public function new()
