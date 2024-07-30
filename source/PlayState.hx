@@ -866,10 +866,7 @@ class PlayState extends MusicBeatState
 		}
 
 		#if android
-		addAndroidControls();
-		androidc.visible = true;
-		androidc.alpha = 0.000001;
-		
+		addMobileControls();
 		#end
 				
 		#if LUA_ALLOWED
@@ -2771,10 +2768,6 @@ class PlayState extends MusicBeatState
 	{
 		if (paused)
 		{
-			#if android
-			androidc.y = 0;
-			//androidc.visible = true;
-			#end
 			if (FlxG.sound.music != null && !startingSong)
 			{
 				resyncVocals();
@@ -3414,11 +3407,6 @@ class PlayState extends MusicBeatState
 		persistentUpdate = false;
 		persistentDraw = true;
 		paused = true;
-
-		#if android
-			androidc.y = 720;
-			//androidc.visible = true;
-			#end
 		// 1 / 1000 chance for Gitaroo Man easter egg
 		/*if (FlxG.random.bool(0.1))
 		{
