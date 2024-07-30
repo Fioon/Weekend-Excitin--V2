@@ -210,7 +210,7 @@ class StoryMenuState extends MusicBeatState
 	override function closeSubState()
 	{
 		persistentUpdate = true;
-		removeVirtualPad();
+		//removeVirtualPad();
 		changeWeek();
 		super.closeSubState();
 	}
