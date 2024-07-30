@@ -6,6 +6,7 @@ import flixel.FlxSubState;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
 import lime.app.Application;
+import flixel.FlxCamera;
 #if android
 import mobile.MobileControls;
 import mobile.flixel.FlxVirtualPad;
