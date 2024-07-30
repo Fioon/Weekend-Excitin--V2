@@ -3,6 +3,8 @@ package options;
 #if desktop
 import Discord.DiscordClient;
 #end
+import options.BaseOptionsMenu;
+import options.Option;
 import Controls;
 import flash.text.TextField;
 import flash.text.TextField;
