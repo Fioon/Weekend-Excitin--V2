@@ -3,6 +3,8 @@ package options;
 #if desktop
 import Discord.DiscordClient;
 #end
+import options.BaseOptionsMenu;
+import options.Option;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
