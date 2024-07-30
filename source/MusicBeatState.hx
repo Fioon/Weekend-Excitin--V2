@@ -14,7 +14,7 @@ import flixel.util.FlxGradient;
 import flixel.FlxState;
 import flixel.FlxCamera;
 import flixel.FlxBasic;
-
+import lime.app.Application;
 #if android
 import mobile.MobileControls;
 import mobile.flixel.FlxVirtualPad;
