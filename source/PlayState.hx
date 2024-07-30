@@ -2050,10 +2050,6 @@ class PlayState extends MusicBeatState
 			callOnLuas('onStartCountdown', []);
 			return;
 		}
-                #if android
-			androidc.visible = true;
-			if (checkHitbox != true) androidc.alpha = 1;
-		 #end
 			 
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
@@ -4085,10 +4081,6 @@ class PlayState extends MusicBeatState
 				return;
 			}
 		}
-
-		#if android
-		androidc.alpha = 0.00001;
-		#end
 			
 		timeBarBG.visible = false;
 		timeBar.visible = false;
