@@ -12,14 +12,14 @@ class MobileOptionsSubState extends BaseOptionsMenu
 {
 	#if android
 	var storageTypes:Array<String> = ["EXTERNAL_DATA", "EXTERNAL_OBB", "EXTERNAL_MEDIA", "EXTERNAL"];
-	var externalPaths:Array<String> = SUtil.checkExternalPaths(true);
+	//var externalPaths:Array<String> = SUtil.checkExternalPaths(true);
 	final lastStorageType:String = ClientPrefs.storageType;
 	#end
 	final hintOptions:Array<String> = ["No Gradient", "No Gradient (Old)", "Gradient", "Hidden"];
 
 	public function new()
 	{
-		#if android if (!externalPaths.contains('\n')) storageTypes = storageTypes.concat(externalPaths); #end
+		//#if android if (!externalPaths.contains('\n')) storageTypes = storageTypes.concat(externalPaths); #end
 		title = 'Mobile Options';
 		rpcTitle = 'Mobile Options Menu'; // for Discord Rich Presence, fuck it
 
