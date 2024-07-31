@@ -867,6 +867,7 @@ class PlayState extends MusicBeatState
 
 		#if android
 		addMobileControls();
+		mobileControls.visible = false;
 		#end
 				
 		#if LUA_ALLOWED
@@ -1290,6 +1291,25 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		var pathOMG:String;
+	        var dialogueFileShit:String;
+	        var musicShit:String;
+		if (isStoryMode)
+		{
+			switch (songName)
+			{
+				case 'cotton':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = 'sunny';
+				case 'cat':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = '';
+				case 'scratched':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = 'sunny';
+			}
+		}					
+					
 		var daSong:String = Paths.formatToSongPath(curSong);
 		if (isStoryMode && !seenCutscene)
 		{
