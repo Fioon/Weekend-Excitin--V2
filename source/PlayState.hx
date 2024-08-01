@@ -1294,6 +1294,7 @@ class PlayState extends MusicBeatState
 		var pathOMG:String;
 	        var dialogueFileShit:String;
 	        var musicShit:String;
+	        try{
 		if (isStoryMode)
 		{
 			switch (songName)
@@ -1307,8 +1308,35 @@ class PlayState extends MusicBeatState
 				case 'scratched':
 					dialogueFileShit = 'dialogue';
 	                                musicShit = 'sunny';
+				case 'night':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = '';
+				case 'overpower':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = 'club';
+				case 'scratched':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = 'sunny';
+				case 'sluggish':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = '';
+				case 'stalwart':
+					dialogueFileShit = 'dialogue';
+	                                musicShit = '';
 			}
-		}					
+			pathOMG = SUtil.getPath() + Paths.json(Paths.formatToSongPath(SONG.song) + '/' + dialogueFileShit);
+			if(FileSystem.exists(pathOMG)){
+				var shitt:DialogueFile = DialogueBoxPsych.parseDialogue(pathOMG);
+				if(shitt.dialogue.length > 0) {
+					startDialogue(shitt, musicShit);
+				}
+			}
+		}
+		}
+	        catch (e:Dynamic)
+		{
+			Application.current.window.alert("Dialogue Error!\n" + e, "Error!");
+		}
 					
 		var daSong:String = Paths.formatToSongPath(curSong);
 		if (isStoryMode && !seenCutscene)
