@@ -56,6 +56,7 @@ import openfl.display.StageQuality;
 import openfl.events.KeyboardEvent;
 import openfl.filters.BitmapFilter;
 import openfl.utils.Assets as OpenFlAssets;
+import lime.app.Application;
 
 using StringTools;
 
