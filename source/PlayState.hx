@@ -1292,12 +1292,12 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		var pathOMG:String;
-	        var dialogueFileShit:String;
-	        var musicShit:String;
+		
 	        try{
 		if (isStoryMode)
 		{
+	                var dialogueFileShit:String = '';
+	                var musicShit:String = '';
 			switch (songName)
 			{
 				case 'cotton':
@@ -1325,7 +1325,7 @@ class PlayState extends MusicBeatState
 					dialogueFileShit = 'dialogue';
 	                                musicShit = '';
 			}
-			pathOMG = SUtil.getPath() + Paths.json(Paths.formatToSongPath(SONG.song) + '/' + dialogueFileShit);
+			var pathOMG:String = SUtil.getPath() + Paths.json(Paths.formatToSongPath(SONG.song) + '/' + dialogueFileShit);
 			if(FileSystem.exists(pathOMG)){
 				var shitt:DialogueFile = DialogueBoxPsych.parseDialogue(pathOMG);
 				if(shitt.dialogue.length > 0) {
@@ -3121,7 +3121,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
-		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
+		if (FlxG.android.justReleased.BACK && startedCountdown && canPause)
 		{
 			var ret:Dynamic = callOnLuas('onPause', [], false);
 			if (ret != FunkinLua.Function_Stop)
