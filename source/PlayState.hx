@@ -72,7 +72,7 @@ import vlc.MP4Handler;
 
 class PlayState extends MusicBeatState
 {
-	public static var countlol:Bool = false;
+	//public static var countlol:Bool = false;
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
@@ -869,7 +869,7 @@ class PlayState extends MusicBeatState
 
 		#if android
 		addMobileControls();
-		mobileControls.visible = false;
+		mobileControls.visible = true;
 		#end
 				
 		#if LUA_ALLOWED
@@ -1683,7 +1683,7 @@ class PlayState extends MusicBeatState
 				{
 					psychDialogue = null;
 					startCountdown();
-					countlol = true;
+					//countlol = true;
 				}
 			}
 			psychDialogue.nextDialogueThing = startNextDialogue;
@@ -2096,7 +2096,6 @@ class PlayState extends MusicBeatState
 
 	public function startCountdown():Void
 	{
-	   if(countlol==true){
 		if (startedCountdown)
 		{
 			callOnLuas('onStartCountdown', []);
@@ -2282,9 +2281,6 @@ class PlayState extends MusicBeatState
 				// generateSong('fresh');
 			}, 5);
 		}
-	}else{
-		return;
-	}
 	}
 
 	public function addBehindGF(obj:FlxObject)
