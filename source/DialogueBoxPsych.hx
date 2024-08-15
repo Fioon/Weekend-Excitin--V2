@@ -17,6 +17,7 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 import openfl.utils.Assets;
+import PlayState;
 
 using StringTools;
 
@@ -446,7 +447,9 @@ class DialogueBoxPsych extends FlxSpriteGroup
 						leChar.destroy();
 					}
 				}
+				PlayState.isOver = true;
 				finishThing();
+				PlayState.instance.startCountdown();
 				kill();
 			}
 		}
