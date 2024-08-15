@@ -30,7 +30,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
+	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Mobile Options'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -92,13 +92,13 @@ class OptionsState extends MusicBeatState
 			tipText.borderSize = 1.25;
 			tipText.scrollFactor.set();
 			tipText.antialiasing = ClientPrefs.globalAntialiasing;
-			add(tipText);
+			//add(tipText);
 			tipText = new FlxText(150, FlxG.height - 44, 0, 'Press Y to Go In Hitbox Settings Menu', 16);
 			tipText.setFormat("VCR OSD Mono", 17, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			tipText.borderSize = 1.25;
 			tipText.scrollFactor.set();
 			tipText.antialiasing = ClientPrefs.globalAntialiasing;
-			add(tipText);
+			//add(tipText);
 		#end	
 			
 		grpOptions = new FlxTypedGroup<Alphabet>();
