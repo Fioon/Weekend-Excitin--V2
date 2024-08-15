@@ -72,7 +72,7 @@ import vlc.MP4Handler;
 
 class PlayState extends MusicBeatState
 {
-	public var isOver:Bool = false;
+	public static var isOver:Bool = false;
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
