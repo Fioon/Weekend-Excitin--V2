@@ -72,7 +72,7 @@ import vlc.MP4Handler;
 
 class PlayState extends MusicBeatState
 {
-	//public static var countlol:Bool = false;
+	public var isOver:Bool = false;
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
@@ -2101,7 +2101,8 @@ class PlayState extends MusicBeatState
 			callOnLuas('onStartCountdown', []);
 			return;
 		}
-			 
+	var songName:String = Paths.formatToSongPath(SONG.song);
+	if(isOver || songName=='jumping' || songName=='pan' || songName=='heart-to-heart'){
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if (ret != FunkinLua.Function_Stop)
@@ -2281,6 +2282,7 @@ class PlayState extends MusicBeatState
 				// generateSong('fresh');
 			}, 5);
 		}
+	}
 	}
 
 	public function addBehindGF(obj:FlxObject)
