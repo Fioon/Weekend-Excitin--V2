@@ -1293,7 +1293,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		
+		isOver = false;
 	        try{
 		if (isStoryMode)
 		{
@@ -1326,13 +1326,7 @@ class PlayState extends MusicBeatState
 					dialogueFileShit = 'dialogue';
 	                                musicShit = '';
 			}
-			var pathOMG:String = SUtil.getPath() + Paths.json(Paths.formatToSongPath(SONG.song) + '/' + dialogueFileShit);
-			if(FileSystem.exists(pathOMG)){
-				var shitt:DialogueFile = DialogueBoxPsych.parseDialogue(pathOMG);
-				if(shitt.dialogue.length > 0) {
-					startDialogue(shitt, musicShit);
-				}
-			}
+			startDialogue(dialogueFileShit, musicShit);
 		}
 		}
 	        catch (e:Dynamic)
@@ -1682,7 +1676,7 @@ class PlayState extends MusicBeatState
 				psychDialogue.finishThing = function()
 				{
 					psychDialogue = null;
-					startCountdown();
+					//startCountdown();
 					//countlol = true;
 				}
 			}
@@ -2102,7 +2096,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 	var songName:String = Paths.formatToSongPath(SONG.song);
-	if(isOver || songName=='jumping' || songName=='pan' || songName=='heart-to-heart'){
+	if(isOver==true || songName=='jumping' || songName=='pan' || songName=='heart-to-heart'){
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if (ret != FunkinLua.Function_Stop)
@@ -2282,6 +2276,8 @@ class PlayState extends MusicBeatState
 				// generateSong('fresh');
 			}, 5);
 		}
+	}else{
+		return;
 	}
 	}
 
