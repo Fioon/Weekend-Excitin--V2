@@ -1294,45 +1294,6 @@ class PlayState extends MusicBeatState
 		#end
 
 		isOver = false;
-	        try{
-		if (isStoryMode)
-		{
-	                var dialogueFileShit:String = '';
-	                var musicShit:String = '';
-			switch (songName)
-			{
-				case 'cotton':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = 'sunny';
-				case 'cat':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = '';
-				case 'scratched':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = 'sunny';
-				case 'night':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = '';
-				case 'overpower':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = 'club';
-				case 'scratched':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = 'sunny';
-				case 'sluggish':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = '';
-				case 'stalwart':
-					dialogueFileShit = 'dialogue';
-	                                musicShit = '';
-			}
-			startDialogue(dialogueFileShit, musicShit);
-		}
-		}
-	        catch (e:Dynamic)
-		{
-			Application.current.window.alert("Dialogue Error!\n" + e, "Error!");
-		}
 					
 		var daSong:String = Paths.formatToSongPath(curSong);
 		if (isStoryMode && !seenCutscene)
