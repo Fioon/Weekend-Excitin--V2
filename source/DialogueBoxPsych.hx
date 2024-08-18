@@ -447,9 +447,15 @@ class DialogueBoxPsych extends FlxSpriteGroup
 						leChar.destroy();
 					}
 				}
-				PlayState.isOver = true;
+				
+				if(PlayState.songFinish==true){
+					PlayState.EndisFinish = true;
+					PlayState.instance.endSong();
+				}else{
+					PlayState.isOver = true;
+					PlayState.instance.startCountdown();			
+				}
 				finishThing();
-				PlayState.instance.startCountdown();
 				kill();
 			}
 		}
