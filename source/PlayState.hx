@@ -4240,6 +4240,9 @@ class PlayState extends MusicBeatState
 			}
 			transitioning = true;
 		}
+	}else{
+		return;
+	}
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
