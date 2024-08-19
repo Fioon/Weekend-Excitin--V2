@@ -2062,6 +2062,7 @@ class PlayState extends MusicBeatState
 	var songName:String = Paths.formatToSongPath(SONG.song);
 	if(isOver==true || songName=='jumping' || songName=='pan' || songName=='heart-to-heart'){
 		inCutscene = false;
+		psychDialogue = null;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if (ret != FunkinLua.Function_Stop)
 		{
@@ -4128,7 +4129,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
         var songName:String = Paths.formatToSongPath(SONG.song);
-	if(EndisFinish==true || isStoryMode==false || songName=='jump' || songName=='pan' || songName=='stalwart' || songName=='scratched' || songName=='cat' || songName=='heart-to-heart'){
+	if(EndisFinish==true || isStoryMode==false || songName=='jump' || songName=='pan' || songName=='stalwart' || songName=='scratched' || songName=='cat' || songName=='heart-to-heart' || songName=='cotton'){
 		var ret:Dynamic = callOnLuas('onEndSong', [], false);
 		if (ret != FunkinLua.Function_Stop && !transitioning)
 		{
