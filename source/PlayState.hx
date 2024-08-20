@@ -2062,7 +2062,6 @@ class PlayState extends MusicBeatState
 	var songName:String = Paths.formatToSongPath(SONG.song);
 	if(isOver==true || songName=='jumping' || songName=='pan' || songName=='heart-to-heart'){
 		inCutscene = false;
-		psychDialogue = null;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if (ret != FunkinLua.Function_Stop)
 		{
