@@ -4131,8 +4131,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 		#end
-        var songName:String = Paths.formatToSongPath(SONG.song);
-	if(EndisFinish==true || isStoryMode==false || songName=='jump' || songName=='pan' || songName=='stalwart' || songName=='scratched' || songName=='cat' || songName=='heart-to-heart' || songName=='cotton'){
+        //var songName:String = Paths.formatToSongPath(SONG.song);
+	//if(EndisFinish==true || isStoryMode==false || songName=='jump' || songName=='pan' || songName=='stalwart' || songName=='scratched' || songName=='cat' || songName=='heart-to-heart' || songName=='cotton'){
 		var ret:Dynamic = callOnLuas('onEndSong', [], false);
 		if (ret != FunkinLua.Function_Stop && !transitioning)
 		{
@@ -4244,9 +4244,9 @@ class PlayState extends MusicBeatState
 			}
 			transitioning = true;
 		}
-	}else{
-		return;
-	}
+	//}else{
+		//return;
+	//}
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
